@@ -3,6 +3,9 @@
 ## API: https://kickstarter-success-app.herokuapp.com/
 ​
 ### Table of Contents  
+
+[Seed Data](#seed-data)
+
 [Important Endpoints](#important-endpoints)
 
 [Register and Login](#register-and-login)
@@ -12,6 +15,16 @@
 [Campaign](#campaign)
 
 [Role](#role)
+
+## SEED DATA
+
+| USER                | PASSWORD     |
+| :-----------------: | :---------:  |
+| admin               | password     |
+| hungtruong          | password     |
+| tristanbrown        | password     |
+| kalvinzhao          | password     |
+| brandononeal        | password     |
 ​
 ## IMPORTANT ENDPOINTS
 
