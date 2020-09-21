@@ -58,13 +58,23 @@ Anyone can sign up as a new user by create a username and password. Doing so gra
 #### The login axios request should look like in order to utilize OAuth 2.0
 ​
 ```
-axios.post('https://kickstarter-success-app.herokuapp.com/login', `grant_type=password&username=${credentials.username}&password=${credentials.password}`, {
+  const login = e => {
+    e.preventDefault();
+    axios.post('https://kickstarter-success-app.herokuapp.com/login', 
+`grant_type=password&username=${credentials.username}&password=${credentials.password}`, 
+{
       headers: {
         // btoa is converting our client id/client secret into base64
         Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
+    .then(res => {
+      console.log(res.data)
+      localStorage.setItem('token', res.data.access_token);
+      props.history.push('/');
+    })
+  }
 ```
 ​
 #### When registering a user the minimum required is
@@ -75,6 +85,21 @@ axios.post('https://kickstarter-success-app.herokuapp.com/login', `grant_type=pa
 }
 ```
 ​
+#### AxiosWithAuth Javascript Code for Authentication with OAuth 2.0
+
+```
+import axios from "axios";
+export const axiosWithAuth =() => {
+  const token = window.localStorage.getItem("token"); 
+  return axios.create({
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    baseURL: 'https://kickstarter-success-app.herokuapp.com'
+  });
+};
+```
+
 ## USER  
 
 In order to change any user information the request must come from an admin or the corresponding user to the id provided in the endpoint.  
