@@ -40,7 +40,6 @@ Below is a list of the relevant endpoints that may be needed for the Kickstarter
 | GET   | /campaigns/campaign/{id}      | Finding a specific campaign by its id                  | Campaign object / Status OK    | Token                                     | Admin / User |
 | POST  | /campaigns/campaign           | Adds new campaign to database                          | Campaign / Status CREATED      | Token                                     | Admin / User |
 | PUT   | /campaigns/campaign/{id}      | Replaces entire campaign                               | Campaign object / Status OK    | Token / updated campaign object           | Admin / User |
-| PATCH | /campaigns/campaign/{id}      | Replaces part of a campaign                            | Campaign object / Status OK    | Token / updated part of campaign object   | Admin / User |
 |DELETE | /campaigns/campaign/{id}      | Deletes a campaign                                     |                   Status OK    | Token                                     | Admin / User |
 
 Postman Link: https://www.getpostman.com/collections/238a5f1cc7efbbf96e36​

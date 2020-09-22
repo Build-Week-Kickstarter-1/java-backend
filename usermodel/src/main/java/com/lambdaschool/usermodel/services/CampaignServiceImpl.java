@@ -33,7 +33,7 @@ public class CampaignServiceImpl implements CampaignService
     HelperFunctions helperFunctions;
 
 
-    //Servicers
+
     @Override
     public List<Campaign> findAll()
     {
@@ -64,7 +64,6 @@ public class CampaignServiceImpl implements CampaignService
         }
     }
 
-    //TODO
     @Transactional
     @Override
     public Campaign save(Campaign campaign)
@@ -92,32 +91,46 @@ public class CampaignServiceImpl implements CampaignService
         }
     }
 
-    //TODO
     @Transactional
     @Override
     public Campaign update(Campaign campaign, long campaignid)
     {
-    Campaign currentCampaign = campaignrepos.findById(campaignid)
-            .orElseThrow(() -> ResourceNotFoundException("Product id " + campaignid + " not found!"));
+        Campaign currentCampaign = campaignrepos.findById(campaignid)
+                .orElseThrow(() -> new ResourceNotFoundException("Campaign id " + campaignid + " not found!"));
 
-    if(campaign.getName() != null)
-    {
-        currentCampaign.setName(campaign.getName());
+        if (campaign.getName() != null)
+        {
+            currentCampaign.setName(campaign.getName());
+        }
+
+        if (campaign.getCategory() != null)
+        {
+            currentCampaign.setCategory(campaign.getCategory());
+        }
+
+        if (campaign.getCurrency() !=null)
+        {
+            currentCampaign.setCurrency(campaign.getCurrency());
+        }
+
+        if (campaign.getLaunchdate() != null)
+        {
+            currentCampaign.setSuccessprediction(campaign.isSuccessprediction());
+        }
+
+        if (campaign.hasgoal)
+        {
+            currentCampaign.setGoal(campaign.getGoal());
+        }
+
+        currentCampaign.setUser(campaign.getUser());
+        currentCampaign.setCampaignid(campaignid);
+
+
+
+        return currentCampaign;
     }
 
-    if (campaign.getCategory() != null)
-    {
-        currentCampaign.setCategory(campaign.getCategory());
-    }
-
-    if (campaign)
-    {
-
-    }
-        currentCampaign.setGoal(campaign.getGoal());
-
-        return null;
-    }
 
     @Transactional
     @Override

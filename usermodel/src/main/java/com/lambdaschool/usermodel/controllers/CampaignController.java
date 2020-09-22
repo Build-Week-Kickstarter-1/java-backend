@@ -92,14 +92,21 @@ public class CampaignController
 
     // PUT http://localhost:2019/campaigns/campaign/17
     @PutMapping(value = "campaign/{campaignid}", consumes ="application/json", produces = "application/json")
-    public ResponseEntity<?> updateFullCampaign(@RequestBody Campaign updatedcampaign, @PathVariable long campaignid)
+    public ResponseEntity<?> updateFullCampaign(@Valid @RequestBody Campaign updatedcampaign, @PathVariable long campaignid)
     {
         updatedcampaign.setUser(helperFunctions.getCurrentUser());
-        campaignService.update(updatedcampaign, campaignid);
+        updatedcampaign = campaignService.update(updatedcampaign, campaignid);
         return new ResponseEntity<>(updatedcampaign, HttpStatus.OK);
     }
 
-    // PATCH http://localhost:2019/campaigns/campaign/17
+    // PUT http://localhost:2019/campaigns/campaign/17
+    @PatchMapping(value = "campaign/{campaignid}", consumes ="application/json", produces = "application/json")
+    public ResponseEntity<?> updatePartCampaign(@RequestBody Campaign updatedcampaign, @PathVariable long campaignid)
+    {
+        updatedcampaign.setUser(helperFunctions.getCurrentUser());
+        updatedcampaign = campaignService.update(updatedcampaign, campaignid);
+        return new ResponseEntity<>(updatedcampaign, HttpStatus.OK);
+    }
 
 
 }

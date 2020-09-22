@@ -1,12 +1,14 @@
 package com.lambdaschool.usermodel.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "campaigns")
+@JsonIgnoreProperties(value = "hasgoal")
 public class Campaign
 {
     @Id
@@ -19,7 +21,9 @@ public class Campaign
     @Column(nullable = true)
     private String category;
 
-    @Column(nullable = true)
+    @Column
+    @Transient
+    public boolean hasgoal = false;
     private long goal;
 
     @Column(nullable = true)
@@ -101,6 +105,7 @@ public class Campaign
 
     public void setGoal(long goal)
     {
+        hasgoal = true;
         this.goal = goal;
     }
 
