@@ -3,6 +3,7 @@ package com.lambdaschool.usermodel.controllers;
 import com.lambdaschool.usermodel.models.Campaign;
 import com.lambdaschool.usermodel.models.User;
 import com.lambdaschool.usermodel.services.CampaignService;
+import com.lambdaschool.usermodel.services.HelperFunctions;
 import com.lambdaschool.usermodel.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -30,6 +31,8 @@ public class CampaignController
     @Autowired
     UserService userService;
 
+    @Autowired
+    HelperFunctions helperFunctions;
 
     //GET http://localhost:2019/campaigns/all
     @PreAuthorize("hasAnyRole('ADMIN')")
@@ -65,31 +68,40 @@ public class CampaignController
     }
 
     // POST http://localhost:2019/campaigns/campaign
-    @PostMapping(value = "/campaign",
-            consumes = "application/json")
+    @PostMapping(value = "/campaign", consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> addNewCampaign(@Valid @RequestBody Campaign newcampaign)
     {
         newcampaign.setCampaignid(0);
-        newcampaign = campaignService.save(newcampaign);
+        newcampaign.setUser(helperFunctions.getCurrentUser());
+        Campaign returnCampaign = campaignService.save(newcampaign);
+
 
         // set the location header for the newly created resource
         HttpHeaders responseHeaders = new HttpHeaders();
         URI newCampaignURI = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("campaigns/campaign/{campaignid}")
+                .path("/{campaignid}")
                 .buildAndExpand(newcampaign.getCampaignid())
                 .toUri();
         responseHeaders.setLocation(newCampaignURI);
 
-        return new ResponseEntity<>(null,
+        return new ResponseEntity<>(returnCampaign,
                 responseHeaders,
                 HttpStatus.CREATED);
 
-        // PUT http://localhost:2019/campaigns/campaign/17
-
-        // PATCH http://localhost:2019/campaigns/campaign/17
-
-
     }
+
+    // PUT http://localhost:2019/campaigns/campaign/17
+    @PutMapping(value = "campaign/{campaignid}", consumes ="application/json", produces = "application/json")
+    public ResponseEntity<?> updateFullCampaign(@RequestBody Campaign updatedcampaign, @PathVariable long campaignid)
+    {
+        updatedcampaign.setUser(helperFunctions.getCurrentUser());
+        campaignService.update(updatedcampaign, campaignid);
+        return new ResponseEntity<>(updatedcampaign, HttpStatus.OK);
+    }
+
+    // PATCH http://localhost:2019/campaigns/campaign/17
+
+
 }
 
 

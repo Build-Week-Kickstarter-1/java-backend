@@ -30,7 +30,7 @@ public class CampaignServiceImpl implements CampaignService
     UserService userService;
 
     @Autowired
-    private UserAuditing userAuditing;
+    HelperFunctions helperFunctions;
 
 
     //Servicers
@@ -69,7 +69,27 @@ public class CampaignServiceImpl implements CampaignService
     @Override
     public Campaign save(Campaign campaign)
     {
-        return null;
+        {
+            Campaign newCampaign = new Campaign();
+
+            if (campaign.getCampaignid() != 0)
+            {
+                Campaign finalCampaign = campaign;
+                campaign = campaignrepos.findById(campaign.getCampaignid())
+                        .orElseThrow(() -> new ResourceNotFoundException("Campaign id " + finalCampaign.getCampaignid() + " not found!"));
+
+            }
+
+            newCampaign.setName(campaign.getName());
+            newCampaign.setCategory(campaign.getCategory());
+            newCampaign.setGoal(campaign.getGoal());
+            newCampaign.setCurrency(campaign.getCurrency());
+            newCampaign.setLaunchdate(campaign.getLaunchdate());
+            newCampaign.setSuccessprediction(campaign.isSuccessprediction());
+            newCampaign.setUser(campaign.getUser());
+
+            return campaignrepos.save(newCampaign);
+        }
     }
 
     //TODO
@@ -77,6 +97,24 @@ public class CampaignServiceImpl implements CampaignService
     @Override
     public Campaign update(Campaign campaign, long campaignid)
     {
+    Campaign currentCampaign = campaignrepos.findById(campaignid)
+            .orElseThrow(() -> ResourceNotFoundException("Product id " + campaignid + " not found!"));
+
+    if(campaign.getName() != null)
+    {
+        currentCampaign.setName(campaign.getName());
+    }
+
+    if (campaign.getCategory() != null)
+    {
+        currentCampaign.setCategory(campaign.getCategory());
+    }
+
+    if (campaign)
+    {
+
+    }
+        currentCampaign.setGoal(campaign.getGoal());
 
         return null;
     }

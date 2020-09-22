@@ -71,11 +71,11 @@ public class SeedData
 
 
         u1.getCampaigns()
-                .add(new Campaign("Student Operated Fabrication Lab","Fabrication Tools",5000, "USD", new Date(), true));
+                .add(new Campaign("Student Operated Fabrication Lab","Fabrication Tools",5000, "USD", new Date(), true, u1));
         u1.getCampaigns()
-                .add(new Campaign("Strawberry Fields Café and Patisserie", "Food", 50000, "CAD", new Date(), false));
+                .add(new Campaign("Strawberry Fields Café and Patisserie", "Food", 50000, "CAD", new Date(), false, u1));
         u1.getCampaigns()
-                .add(new Campaign("Operación Douve", "Action", 100, "EUR", new Date(), true));
+                .add(new Campaign("Operación Douve", "Action", 100, "EUR", new Date(), true, u1));
         userService.save(u1);
 
         // data, user
