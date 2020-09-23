@@ -86,7 +86,7 @@ public class OpenController
         // set the location header for the newly created resource
         // The location comes from a different controller!
         HttpHeaders responseHeaders = new HttpHeaders();
-        URI newUserURI = ServletUriComponentsBuilder.fromUriString(httpServletRequest.getServerName() + ":" + httpServletRequest.getLocalPort() + "/users/user/{userId}")
+        URI newUserURI = ServletUriComponentsBuilder.fromUriString("localhost:" + httpServletRequest.getLocalPort() + "/users/user/{userId}")
                 .buildAndExpand(newuser.getUserid())
                 .toUri();
         responseHeaders.setLocation(newUserURI);
@@ -94,7 +94,7 @@ public class OpenController
         // return the access token
         // To get the access token, surf to the endpoint /login just as if a client had done this.
         RestTemplate restTemplate = new RestTemplate();
-        String requestURI = "http://" + httpServletRequest.getServerName() + ":" + httpServletRequest.getLocalPort() + "/login";
+        String requestURI = "http://localhost:" + httpServletRequest.getLocalPort() + "/login";
 
         List<MediaType> acceptableMediaTypes = new ArrayList<>();
         acceptableMediaTypes.add(MediaType.APPLICATION_JSON);
@@ -127,14 +127,12 @@ public class OpenController
                 HttpStatus.CREATED);
     }
 
-    /**
-     * Prevents no favicon.ico warning from appearing in the logs. @ApiIgnore tells Swagger to ignore documenting this as an endpoint.
-     */
-    @ApiIgnore
-    @GetMapping("favicon.ico")
-    public void returnNoFavicon()
-    {
 
-    }
+//    @ApiIgnore
+//    @GetMapping("favicon.ico")
+//    public void returnNoFavicon()
+//    {
+//
+//    }
 
 }
