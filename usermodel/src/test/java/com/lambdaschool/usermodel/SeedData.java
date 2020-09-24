@@ -70,11 +70,11 @@ public class SeedData
 
 
         u1.getCampaigns()
-                .add(new Campaign("Student Operated Fabrication Lab","Test", "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",5000, "US", new Date(), new Date(),true, u1));
+                .add(new Campaign("Student Operated Fabrication Lab","Test", "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",5000, "US", new Date(1989, 12, 06), new Date(1989, 12, 30),true, u1));
         u1.getCampaigns()
-                .add(new Campaign("Strawberry Fields Café and Patisserie", "Test", "more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 50000, "CA", new Date(), new Date(),false, u1));
+                .add(new Campaign("Strawberry Fields Café and Patisserie", "Test", "more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 50000, "CA", new Date(1989, 12, 06), new Date(1989, 12, 30),false, u1));
         u1.getCampaigns()
-                .add(new Campaign("Operación Douve", "Test", "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout." ,100, "PT", new Date(),new Date(), true, u1));
+                .add(new Campaign("Operación Douve", "Test", "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout." ,100, "PT", new Date(1989, 12, 06), new Date(1989, 12, 30), true, u1));
         userService.save(u1);
 
         // data, user
@@ -86,11 +86,11 @@ public class SeedData
 
 
         u2.getCampaigns()
-                .add(new Campaign("Crap Amidst Hilarity, vol. 1","Games", "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout." , 7500, "US", new Date(), new Date(), true));
+                .add(new Campaign("Crap Amidst Hilarity, vol. 1","Games", "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout." , 7500, "US", new Date(1989, 12, 06), new Date(1989, 12, 30), true));
         u2.getCampaigns()
-                .add(new Campaign("Kaleidoscope Man", "Film & Video", "Blurb with words go here", 60000, "GB", new Date(), new Date(), false));
+                .add(new Campaign("Kaleidoscope Man", "Film & Video", "Blurb with words go here", 60000, "GB", new Date(1989, 12, 06), new Date(1989, 12, 30), false));
         u2.getCampaigns()
-                .add(new Campaign("Operation: Make Stuff", "Games", "Blurb with more words go here to explain",200, "PT", new Date(), new Date(),true));
+                .add(new Campaign("Operation: Make Stuff", "Games", "Blurb with more words go here to explain",200, "PT", new Date(1989, 12, 06), new Date(1989, 12, 30),true));
 
 
         userService.save(u2);
@@ -103,11 +103,11 @@ public class SeedData
                 .add(new UserRoles(u3, r2));
 
         u3.getCampaigns()
-                .add(new Campaign("A photobook of life in Japan","Photography", "My adventures in Japan",7500, "US", new Date(), new Date(), true));
+                .add(new Campaign("A photobook of life in Japan","Photography", "My adventures in Japan",7500, "US", new Date(1989, 12, 06), new Date(1989, 12, 30), true));
         u3.getCampaigns()
-                .add(new Campaign("Spirits Asunder", "Film & Video", "A movie about Spirits",600, "GB", new Date(), new Date(), false));
+                .add(new Campaign("Spirits Asunder", "Film & Video", "A movie about Spirits",600, "GB", new Date(1989, 12, 06), new Date(1989, 12, 30), false));
         u3.getCampaigns()
-                .add(new Campaign("Loony Tunes the Game", "Games", "The movie as a game", 25000, "US", new Date(), new Date(), true));
+                .add(new Campaign("Loony Tunes the Game", "Games", "The movie as a game", 25000, "US", new Date(1989, 12, 06), new Date(1989, 12, 30), true));
 
         userService.save(u3);
 
@@ -117,11 +117,11 @@ public class SeedData
                 .add(new UserRoles(u4, r2));
 
         u4.getCampaigns()
-                .add(new Campaign("Loony Tunes the Game", "Games", "The movie as a game", 25000, "US", new Date(), new Date(), true));
+                .add(new Campaign("Loony Tunes the Game", "Games", "The movie as a game", 25000, "US", new Date(1989, 12, 06), new Date(1989, 12, 30), true));
         u4.getCampaigns()
-                .add(new Campaign("This is a Test Name", "Games", "blurb goes here",25000, "US", new Date(), new Date(), true));
+                .add(new Campaign("This is a Test Name", "Games", "blurb goes here",25000, "US", new Date(1989, 12, 06), new Date(1989, 12, 30), true));
         u4.getCampaigns()
-                 .add(new Campaign("Spirits Asunder", "Film & Video", "A movie about Spirits",600, "GB", new Date(), new Date(), false));
+                 .add(new Campaign("Spirits Asunder", "Film & Video", "A movie about Spirits",600, "GB", new Date(1989, 12, 06), new Date(1989, 12, 30), false));
 
         userService.save(u4);
 
@@ -131,9 +131,9 @@ public class SeedData
                 .add(new UserRoles(u5, r2));
 
         u5.getCampaigns()
-                .add(new Campaign("Kickstarter Success Test", "Games", "Test blurb is going on here", 25000, "US", new Date(), new Date(),true));
+                .add(new Campaign("Kickstarter Success Test", "Games", "Test blurb is going on here", 25000, "US", new Date(1989, 12, 06), new Date(1989, 12, 30),true));
         u5.getCampaigns()
-                .add(new Campaign("Spirits Asunder", "Film & Video", "A movie about Spirits",600, "GB", new Date(), new Date(), false));
+                .add(new Campaign("Spirits Asunder", "Film & Video", "A movie about Spirits",600, "GB", new Date(1989, 12, 06), new Date(1989, 12, 30), false));
 
         userService.save(u5);
 
@@ -143,9 +143,9 @@ public class SeedData
                 .add(new UserRoles(u6, r2));
 
         u6.getCampaigns()
-                .add(new Campaign("Triumph: The Card Game", "Games", "A card arranging strategy game",25000, "US", new Date(), new Date(), true));
+                .add(new Campaign("Triumph: The Card Game", "Games", "A card arranging strategy game",25000, "US", new Date(1989, 12, 06), new Date(1989, 12, 30), true));
         u6.getCampaigns()
-                .add(new Campaign("Spirits Asunder", "Film & Video", "A movie about Spirits",600, "GB", new Date(), new Date(), false));
+                .add(new Campaign("Spirits Asunder", "Film & Video", "A movie about Spirits",600, "GB", new Date(1989, 12, 06), new Date(1989, 12, 30),false));
 
         userService.save(u6);
 

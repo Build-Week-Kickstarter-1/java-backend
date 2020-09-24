@@ -2,7 +2,9 @@ package com.lambdaschool.usermodel.services;
 
 import com.lambdaschool.usermodel.UserModelApplication;
 import com.lambdaschool.usermodel.exceptions.ResourceNotFoundException;
+import com.lambdaschool.usermodel.models.Role;
 import com.lambdaschool.usermodel.models.User;
+import com.lambdaschool.usermodel.models.UserRoles;
 import com.lambdaschool.usermodel.repository.UserRepository;
 import org.junit.After;
 import org.junit.Before;
@@ -87,13 +89,16 @@ public class UserServiceImplTest
     @Test
     public void f_save()
     {
-        String name = "ajwpdx";
-        User testUser = new User(name,"pass");
-        testUser.setUserid(0);
+        User saveUser = new User();
 
-        User savedUser = userService.save(testUser);
+        saveUser.setUsername("ajwpdx");
+        saveUser.setPasswordNoEncrypt("password");
 
-        assertEquals(savedUser.getUsername(), name);
+        saveUser.setUserid(3);
+
+        saveUser = userService.save(saveUser);
+
+        assertEquals(saveUser.getUsername(), "ajwpdx");
     }
 
     @Test
