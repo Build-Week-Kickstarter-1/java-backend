@@ -1,7 +1,6 @@
 package com.lambdaschool.usermodel.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,16 +20,22 @@ public class Campaign
     @Column(nullable = true)
     private String category;
 
+    @Column(nullable = true)
+    private String blurb;
+
     @Column
     @Transient
     public boolean hasgoal = false;
     private long goal;
 
     @Column(nullable = true)
-    private String currency;
+    private String country;
 
     @Column(nullable = true)
     private Date launchdate;
+
+    @Column(nullable = true)
+    private Date deadline;
 
     @Column(nullable = true)
     private boolean successprediction;
@@ -46,24 +51,28 @@ public class Campaign
     {
     }
 
-    public Campaign(String name, String category, long goal, String currency, Date launchdate, boolean successprediction, User user)
+    public Campaign(String name, String category, String blurb, long goal, String country, Date launchdate, Date deadline, boolean successprediction, User user)
     {
         this.name = name;
         this.category = category;
+        this.blurb = blurb;
         this.goal = goal;
-        this.currency = currency;
+        this.country = country;
         this.launchdate = launchdate;
+        this.deadline = deadline;
         this.successprediction = successprediction;
         this.user = user;
     }
 
-    public Campaign(String name, String category, long goal, String currency, Date launchdate, boolean successprediction)
+    public Campaign(String name, String category, String blurb, long goal, String country, Date launchdate, Date deadline, boolean successprediction)
     {
         this.name = name;
         this.category = category;
+        this.blurb = blurb;
         this.goal = goal;
-        this.currency = currency;
+        this.country = country;
         this.launchdate = launchdate;
+        this.deadline = deadline;
         this.successprediction = successprediction;
 
     }
@@ -109,14 +118,14 @@ public class Campaign
         this.goal = goal;
     }
 
-    public String getCurrency()
+    public String getCountry()
     {
-        return currency;
+        return country;
     }
 
-    public void setCurrency(String currency)
+    public void setCountry(String currency)
     {
-        this.currency = currency;
+        this.country = currency;
     }
 
     public Date getLaunchdate()
@@ -147,5 +156,25 @@ public class Campaign
     public void setUser(User user)
     {
         this.user = user;
+    }
+
+    public Date getDeadline()
+    {
+        return deadline;
+    }
+
+    public void setDeadline(Date deadline)
+    {
+        this.deadline = deadline;
+    }
+
+    public String getBlurb()
+    {
+        return blurb;
+    }
+
+    public void setBlurb(String blurb)
+    {
+        this.blurb = blurb;
     }
 }

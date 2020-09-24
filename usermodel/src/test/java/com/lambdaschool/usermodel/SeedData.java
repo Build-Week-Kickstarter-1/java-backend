@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
-import java.util.Locale;
 
 /**
  * SeedData puts both known and random data into the database. It implements CommandLineRunner.
@@ -71,11 +70,11 @@ public class SeedData
 
 
         u1.getCampaigns()
-                .add(new Campaign("Student Operated Fabrication Lab","Technology", "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",5000, "US", new Date(), new Date(),true, u1));
+                .add(new Campaign("Student Operated Fabrication Lab","Test", "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",5000, "US", new Date(), new Date(),true, u1));
         u1.getCampaigns()
-                .add(new Campaign("Strawberry Fields Café and Patisserie", "Food", "more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 50000, "CA", new Date(), new Date(),false, u1));
+                .add(new Campaign("Strawberry Fields Café and Patisserie", "Test", "more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 50000, "CA", new Date(), new Date(),false, u1));
         u1.getCampaigns()
-                .add(new Campaign("Operación Douve", "Fashion", "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout." ,100, "PT", new Date(),new Date(), true, u1));
+                .add(new Campaign("Operación Douve", "Test", "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout." ,100, "PT", new Date(),new Date(), true, u1));
         userService.save(u1);
 
         // data, user

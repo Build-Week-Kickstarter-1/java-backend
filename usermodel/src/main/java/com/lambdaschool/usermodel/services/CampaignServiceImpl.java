@@ -2,9 +2,6 @@ package com.lambdaschool.usermodel.services;
 
 import com.lambdaschool.usermodel.exceptions.ResourceNotFoundException;
 import com.lambdaschool.usermodel.models.Campaign;
-import com.lambdaschool.usermodel.models.Role;
-import com.lambdaschool.usermodel.models.User;
-import com.lambdaschool.usermodel.models.UserRoles;
 import com.lambdaschool.usermodel.repository.CampaignRepository;
 import com.lambdaschool.usermodel.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,9 +78,11 @@ public class CampaignServiceImpl implements CampaignService
 
             newCampaign.setName(campaign.getName());
             newCampaign.setCategory(campaign.getCategory());
+            newCampaign.setBlurb(campaign.getBlurb());
             newCampaign.setGoal(campaign.getGoal());
-            newCampaign.setCurrency(campaign.getCurrency());
+            newCampaign.setCountry(campaign.getCountry());
             newCampaign.setLaunchdate(campaign.getLaunchdate());
+            newCampaign.setDeadline(campaign.getDeadline());
             newCampaign.setSuccessprediction(campaign.isSuccessprediction());
             newCampaign.setUser(campaign.getUser());
 
@@ -108,14 +107,24 @@ public class CampaignServiceImpl implements CampaignService
             currentCampaign.setCategory(campaign.getCategory());
         }
 
-        if (campaign.getCurrency() !=null)
+        if (campaign.getBlurb() != null)
         {
-            currentCampaign.setCurrency(campaign.getCurrency());
+            currentCampaign.setBlurb(campaign.getBlurb());
+        }
+
+        if (campaign.getCountry() !=null)
+        {
+            currentCampaign.setCountry(campaign.getCountry());
         }
 
         if (campaign.getLaunchdate() != null)
         {
             currentCampaign.setSuccessprediction(campaign.isSuccessprediction());
+        }
+
+        if (campaign.getDeadline() != null)
+        {
+            currentCampaign.setDeadline(campaign.getDeadline());
         }
 
         if (campaign.hasgoal)

@@ -113,7 +113,7 @@ public class UserServiceImpl
         for (Campaign c : user.getCampaigns())
         {
             newUser.getCampaigns()
-                .add(new Campaign(c.getName(), c.getCategory(), c.getGoal(), c.getCurrency(), c.getLaunchdate(), c.isSuccessprediction(), newUser));
+                .add(new Campaign(c.getName(), c.getCategory(), c.getBlurb(), c.getGoal(), c.getCountry(), c.getLaunchdate(), c.getDeadline(), c.isSuccessprediction(), newUser));
         }
 
         return userrepos.save(newUser);
@@ -164,7 +164,7 @@ public class UserServiceImpl
                 for (Campaign c : user.getCampaigns())
                 {
                     currentUser.getCampaigns()
-                            .add(new Campaign(c.getName(), c.getCategory(), c.getGoal(), c.getCurrency(), c.getLaunchdate(), c.isSuccessprediction(), currentUser));
+                            .add(new Campaign(c.getName(), c.getCategory(), c.getBlurb(), c.getGoal(), c.getCountry(), c.getLaunchdate(), c.getDeadline(), c.isSuccessprediction(), currentUser));
                 }
             }
 
