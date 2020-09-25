@@ -123,7 +123,7 @@ In order to change any user information the request must come from an admin or t
 |  GET   |      /users/user/{id}       |           Finding a user by their id            | User object / Status OK  |                Token                |    Admin     |
 |  GET   | /users/user/name/{username} |          Find a user by their username          | User object / Status OK  |                Token                |    Admin     |
 |  POST  |         /users/user         |                 Add a new user                  |      Status CREATED      |                Token                |    Admin     |
-|  PUT   |      /users/user/{id}       |           Edit full user information            |        Status OK         |     Token / updated user object     | Admin / User |
+|  PUT   |      /users/user/{id}       |           Edit full user information            |        Status OK         |     Token / updated user object     |    Admin     |
 | PATCH  |      /users/user/{id}       |          Edit partial user information          |        Status OK         | Token / updated part of user object | Admin / User |
 | DELETE |      /users/user/{id}       |                 Deletes a user                  |        Status OK         |                Token                | Admin / User |
 
