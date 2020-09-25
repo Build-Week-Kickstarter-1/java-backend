@@ -29,8 +29,6 @@ import static org.junit.Assert.*;
 public class UserServiceImplTest
 {
 
-//    @MockBean
-//    private UserRepository userRepository;
 
     @Autowired
     private UserService userService;
@@ -94,7 +92,7 @@ public class UserServiceImplTest
         saveUser.setUsername("ajwpdx");
         saveUser.setPasswordNoEncrypt("password");
 
-        saveUser.setUserid(3);
+        saveUser.setUserid(22);
 
         saveUser = userService.save(saveUser);
 

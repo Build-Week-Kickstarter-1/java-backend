@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,8 +49,10 @@ public class UserController
         return new ResponseEntity<>(u,
                 HttpStatus.OK);
     }
-    
+
+
    // GET http://localhost:2019/users/users
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping(value = "/users",
             produces = "application/json")
     public ResponseEntity<?> listAllUsers()
@@ -60,6 +63,7 @@ public class UserController
     }
 
     // GET http://localhost:2019/users/user/7
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping(value = "/user/{userId}",
             produces = "application/json")
     public ResponseEntity<?> getUserById(
@@ -72,6 +76,7 @@ public class UserController
     }
 
     // GET http://localhost:2019/users/user/name/ajwpdx
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping(value = "/user/name/{userName}",
             produces = "application/json")
     public ResponseEntity<?> getUserByName(
